@@ -1,0 +1,68 @@
+/* ============================================================
+   SectionHeader Component
+   ============================================================ */
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-header__text {
+  min-width: 0;
+}
+
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.section-header__subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.section-header__see-all {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color var(--transition);
+  padding-bottom: 2px;
+}
+
+.section-header__see-all:hover {
+  color: var(--accent);
+}
+
+.section-header__see-all-arrow {
+  transition: transform var(--transition);
+  display: inline-block;
+}
+
+.section-header__see-all:hover .section-header__see-all-arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .section-header__title {
+    font-size: 1.15rem;
+  }
+}

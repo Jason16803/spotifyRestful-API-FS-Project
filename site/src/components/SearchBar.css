@@ -1,0 +1,115 @@
+/* ============================================================
+   SearchBar Component
+   ============================================================ */
+
+.searchbar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 0 0.5rem 0 1.1rem;
+  height: 48px;
+  width: 100%;
+  max-width: 640px;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.searchbar:focus-within {
+  border-color: var(--border-accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+  outline: none;
+}
+
+/* ---------- Icon ---------- */
+.searchbar__icon {
+  display: flex;
+  align-items: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-right: 0.6rem;
+  transition: color var(--transition);
+}
+
+.searchbar:focus-within .searchbar__icon {
+  color: var(--accent);
+}
+
+/* ---------- Input ---------- */
+.searchbar__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 400;
+  min-width: 0;
+
+  /* Remove browser default search styling */
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.searchbar__input::placeholder {
+  color: var(--text-muted);
+}
+
+.searchbar__input::-webkit-search-cancel-button {
+  display: none;
+}
+
+/* ---------- Clear button ---------- */
+.searchbar__clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  flex-shrink: 0;
+  transition: background var(--transition), color var(--transition);
+}
+
+.searchbar__clear:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+}
+
+/* ---------- Submit button ---------- */
+.searchbar__submit {
+  height: 36px;
+  padding: 0 1.1rem;
+  background: var(--accent);
+  color: #000;
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin-left: 0.35rem;
+  flex-shrink: 0;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.searchbar__submit:hover {
+  background: var(--accent-hover);
+  transform: scale(1.03);
+}
+
+.searchbar__submit:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .searchbar {
+    height: 44px;
+  }
+
+  .searchbar__submit {
+    display: none;
+  }
+}

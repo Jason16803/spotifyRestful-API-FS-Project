@@ -1,0 +1,64 @@
+/* ============================================================
+   Footer Component
+   ============================================================ */
+
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-elevated);
+  margin-top: 4rem;
+}
+
+.footer__inner {
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------- Brand ---------- */
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.footer__brand-icon {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.footer__brand-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Links ---------- */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.25rem 0.75rem;
+}
+
+.footer__link {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  padding: 0.2rem 0;
+  transition: color var(--transition);
+}
+
+.footer__link:hover {
+  color: var(--text-primary);
+}
+
+/* ---------- Copyright ---------- */
+.footer__copy {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+}

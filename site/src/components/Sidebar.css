@@ -1,0 +1,208 @@
+/* ============================================================
+   Sidebar Component
+   ============================================================ */
+
+.sidebar {
+  width: var(--sidebar-width);
+  height: 100%;
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.75rem 1.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ---------- Mobile overlay ---------- */
+.sidebar__overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 49;
+}
+
+/* ---------- Nav ---------- */
+.sidebar__nav {
+  margin-bottom: 0.5rem;
+}
+
+.sidebar__nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__link {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color var(--transition), background var(--transition);
+  text-decoration: none;
+  width: 100%;
+}
+
+.sidebar__link:hover {
+  color: var(--text-primary);
+  background: var(--bg-highlight);
+}
+
+.sidebar__link--active {
+  color: var(--text-primary);
+  background: var(--bg-highlight);
+  font-weight: 600;
+}
+
+.sidebar__link--active .sidebar__link-icon {
+  color: var(--accent);
+}
+
+.sidebar__link-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+  transition: color var(--transition);
+}
+
+.sidebar__link-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Divider ---------- */
+.sidebar__divider {
+  height: 1px;
+  background: var(--border);
+  margin: 0.75rem 0.25rem;
+}
+
+/* ---------- Library ---------- */
+.sidebar__library {
+  flex: 1;
+  min-height: 0;
+}
+
+.sidebar__library-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.5rem 0.5rem;
+}
+
+.sidebar__library-icon {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.sidebar__library-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  flex: 1;
+}
+
+.sidebar__library-add {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--bg-highlight);
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background var(--transition), color var(--transition);
+}
+
+.sidebar__library-add:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ---------- Playlists ---------- */
+.sidebar__playlists {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar__playlist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.45rem 0.5rem;
+  border-radius: var(--radius-sm);
+  width: 100%;
+  text-align: left;
+  transition: background var(--transition);
+  cursor: pointer;
+}
+
+.sidebar__playlist-item:hover {
+  background: var(--bg-highlight);
+}
+
+.sidebar__playlist-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.sidebar__playlist-name {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--transition);
+}
+
+.sidebar__playlist-item:hover .sidebar__playlist-name {
+  color: var(--text-primary);
+}
+
+/* ---------- Footer hint ---------- */
+.sidebar__hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 0.75rem 0.5rem 0;
+  line-height: 1.5;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    bottom: 0;
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform var(--transition-slow);
+  }
+
+  .sidebar--open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar--open ~ .sidebar__overlay,
+  .sidebar__overlay {
+    display: block;
+  }
+}
